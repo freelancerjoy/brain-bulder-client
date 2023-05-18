@@ -44,7 +44,7 @@ const AddToy = () => {
             <input
               className="bg-white p-3"
               placeholder="Price"
-              {...register("Price", { required: true })}
+              {...register("price", { required: true })}
             />
             <input
               className="bg-white p-3"
@@ -53,11 +53,12 @@ const AddToy = () => {
             />
             <select
               className="p-3"
-              {...register("sub-category")}
+              {...register("subCategory")}
               placeholder="Suv">
               <option value="">Sub-Category</option>
-              <option value="male">male</option>
-              <option value="other">other</option>
+              <option value="Scince Kit">Scince Kit</option>
+              <option value="Math Learning Toy">Math Learning Toy</option>
+              <option value="Engineering Kit">Engineering Kit</option>
             </select>
             <input
               className="bg-white p-3"
