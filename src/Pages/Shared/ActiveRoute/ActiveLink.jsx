@@ -9,7 +9,7 @@ const ActiveLink = ({ to, children }) => {
         className={({ isActive }) => {
           return isActive
             ? "font-bold text-green-500 border-dashed border-b-4 border-green-300"
-            : "bg-black";
+            : "";
         }}>
         {children}
       </NavLink>
