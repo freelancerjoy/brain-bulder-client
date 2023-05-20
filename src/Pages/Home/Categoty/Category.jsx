@@ -13,7 +13,7 @@ const Category = () => {
     fetch("https://brain-bulders-server.vercel.app/alltoys")
       .then((res) => res.json())
       .then((data) => setToys(data));
-  }, [toys]);
+  }, []);
   console.log("tabt", tabIndex);
   console.log(toys);
 

@@ -7,7 +7,7 @@ import useTitle from "../../Hooks/useTitle";
 
 const Login = () => {
   useTitle("login");
-  const { LogIn } = useContext(AuthContest);
+  const { LogIn, googleLogin } = useContext(AuthContest);
   const [error, setError] = useState();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -33,6 +33,15 @@ const Login = () => {
         console.log(error);
         setError(error.message);
       });
+  };
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => setError(error.message));
   };
   return (
     <div className="bg-slate-100 py-10">
@@ -74,9 +83,11 @@ const Login = () => {
             />
           </form>
           <div className="divider">OR</div>
-          <div className="w-14 mx-auto h-14 flex items-center justify-center bg-white rounded-full border-2 border-green-500">
+          <button
+            onClick={handleGoogleLogin}
+            className="w-14 mx-auto h-14 flex items-center justify-center bg-white rounded-full border-2 border-green-500">
             <FcGoogle className="text-3xl text-center "></FcGoogle>
-          </div>
+          </button>
         </div>
       </div>
     </div>
