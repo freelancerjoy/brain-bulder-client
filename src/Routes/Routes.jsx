@@ -13,6 +13,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <h1>console.erro</h1>,
     children: [
       {
         path: "/",
