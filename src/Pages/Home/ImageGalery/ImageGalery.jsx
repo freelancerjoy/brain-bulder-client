@@ -13,25 +13,64 @@ const ImageGalery = () => {
           we've captured.{" "}
         </p>
       </div>
-      <div className="grid grid-cols-4 gap-5 ">
-        <div className="col-span-2 bg-slate-100 rounded-lg p-5 shadow-md">
-          <img
+      <div className="grid grid-cols-2 gap-5 ">
+        <div className=" bg-slate-100 rounded-lg p-5 shadow-md">
+          {/* <img
             src="https://www.n2y.com/wp-content/uploads/n2y-manips-full-kit.png"
             alt=""
-          />
+          /> */}
+          <div className="grid grid-cols-2 gap-5 ">
+            <div className="border-4 border-slate-100 rounded-lg p-5 shadow-md">
+              <img
+                src="https://m.media-amazon.com/images/I/8143wgce78L._AC_SX679_.jpg"
+                alt=""
+              />
+            </div>
+            <div className="border-4 border-slate-100 rounded-lg p-3 shadow-md">
+              <img
+                src="https://m.media-amazon.com/images/I/816JgA5Ow+L._AC_SX679_.jpg"
+                alt=""
+              />
+            </div>
+            <div className="border-4 border-slate-100 rounded-lg p-5 shadow-md">
+              <img
+                src="https://ng.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/82/909226/1.jpg?0620"
+                alt=""
+              />
+            </div>
+            <div className="border-4 border-slate-100 rounded-lg p-5 shadow-md">
+              <img
+                src="https://m.media-amazon.com/images/I/81zhM7RSBCL._AC_SX679_.jpg"
+                alt=""
+              />
+            </div>
+          </div>
         </div>
-        <div className="  bg-slate-100 rounded-lg p-5 shadow-md">
-          <img
-            className="h-56"
-            src="https://img.lakeshorelearning.com/is/image/OCProduction/kt18417?wid=800&fmt=jpeg&qlt=85,1&pscan=auto&op_sharpen=0&resMode=sharp2&op_usm=1,0.65,6,0"
-            alt=""
-          />
-        </div>
-        <div className="row-span-1">
-          <img
-            src="https://m.media-amazon.com/images/I/8143wgce78L._AC_SX679_.jpg"
-            alt=""
-          />
+        <div className="grid grid-cols-2 gap-5 ">
+          <div className="border-4 border-slate-100 rounded-lg p-5 shadow-md">
+            <img
+              src="https://m.media-amazon.com/images/I/81piopB8wiL._AC_SX522_.jpg"
+              alt=""
+            />
+          </div>
+          <div className="border-4 border-slate-100 rounded-lg p-5 shadow-md">
+            <img
+              src="https://m.media-amazon.com/images/I/8143wgce78L._AC_SX679_.jpg"
+              alt=""
+            />
+          </div>
+          <div className="border-4 border-slate-100 rounded-lg p-5 shadow-md">
+            <img
+              src="https://m.media-amazon.com/images/I/8143wgce78L._AC_SX679_.jpg"
+              alt=""
+            />
+          </div>
+          <div className="border-4 border-slate-100 rounded-lg p-5 shadow-md">
+            <img
+              src="https://m.media-amazon.com/images/I/8143wgce78L._AC_SX679_.jpg"
+              alt=""
+            />
+          </div>
         </div>
       </div>
     </div>

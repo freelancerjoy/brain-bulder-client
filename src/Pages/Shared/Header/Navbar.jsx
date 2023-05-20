@@ -15,6 +15,7 @@ const Navbar = () => {
       <li>
         <ActiveLink to="/alltoy">All Toy</ActiveLink>
       </li>
+
       {user && (
         <>
           <li>
@@ -52,8 +53,17 @@ const Navbar = () => {
             </label>
             <ul
               tabindex="0"
-              class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+              class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-40">
               {navItems}
+              {user && (
+                <li>
+                  <button
+                    onClick={logOut}
+                    class="btn rounded-full mt-1 text-white border-0 bg-green-500 ">
+                    Logout
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
           <img class="lg:w-64 w-52" src={logo} alt="" />
@@ -65,13 +75,14 @@ const Navbar = () => {
           {user ? (
             <>
               <img
-                className="w-16 h-16 rounded-full mr-4"
+                title={user?.displayName}
+                className="w-14 h-14 rounded-full mr-4"
                 src={user?.photoURL}
                 alt="User pictre"
               />
               <button
                 onClick={logOut}
-                class="btn rounded-full hidden leading-4 lg:block border-0 bg-green-500 px-8">
+                class="btn rounded-full hidden lg:block border-0 bg-green-500 px-8">
                 Logout
               </button>
             </>
