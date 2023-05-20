@@ -4,6 +4,7 @@ import {
   getAuth,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signOut,
   updateProfile,
 } from "firebase/auth";
 import app from "../Firebase/firebase.config";
@@ -38,20 +39,27 @@ const AuthProvider = ({ children }) => {
     });
   };
 
+  // Logout user
+  const logOut = () => {
+    signOut(auth);
+  };
+
   // Current user
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
     });
-    return unsubscribe();
-  }, []);
+    return () => unsubscribe();
+  }, [loading]);
 
   const authInfo = {
     user,
+    loading,
     signUpUser,
     LogIn,
     profileUpdate,
+    logOut,
   };
   return (
     <AuthContest.Provider value={authInfo}>{children}</AuthContest.Provider>

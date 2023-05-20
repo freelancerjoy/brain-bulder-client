@@ -4,7 +4,8 @@ import ActiveLink from "../ActiveRoute/ActiveLink";
 import { AuthContest } from "../../../Provider/AuthProvider";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContest);
+  const { user, logOut } = useContext(AuthContest);
+
   const navItems = (
     <>
       <li>
@@ -67,10 +68,18 @@ const Navbar = () => {
                 src={user?.photoURL}
                 alt="User pictre"
               />
-              <a class="btn rounded-full border-0 bg-green-500 px-8">Logout</a>
+              <a
+                onClick={logOut}
+                class="btn rounded-full border-0 bg-green-500 px-8">
+                Logout
+              </a>
             </>
           ) : (
-            <a class="btn rounded-full border-0 bg-green-500 px-8">Login</a>
+            <Link
+              to="/login"
+              class="btn rounded-full border-0 bg-green-500 px-8">
+              Login
+            </Link>
           )}
         </div>
       </div>
