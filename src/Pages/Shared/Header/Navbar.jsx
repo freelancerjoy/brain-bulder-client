@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import ActiveLink from "../ActiveRoute/ActiveLink";
+import { AuthContest } from "../../../Provider/AuthProvider";
 
 const Navbar = () => {
+  const { user } = useContext(AuthContest);
   const navItems = (
     <>
       <li>
@@ -11,12 +13,16 @@ const Navbar = () => {
       <li>
         <ActiveLink to="/alltoy">All Toy</ActiveLink>
       </li>
-      <li>
-        <ActiveLink to="/mytoy">My Toy</ActiveLink>
-      </li>
-      <li>
-        <ActiveLink to="/addtoy">Add Toy</ActiveLink>
-      </li>
+      {user && (
+        <>
+          <li>
+            <ActiveLink to="/mytoy">My Toy</ActiveLink>
+          </li>
+          <li>
+            <ActiveLink to="/addtoy">Add Toy</ActiveLink>
+          </li>
+        </>
+      )}
       <li>
         <Link to="/">BLog</Link>
       </li>
@@ -54,7 +60,18 @@ const Navbar = () => {
           <ul class="menu menu-horizontal px-1">{navItems}</ul>
         </div>
         <div class="navbar-end">
-          <a class="btn rounded-full border-0 bg-green-500 px-8">Login</a>
+          {user ? (
+            <>
+              <img
+                className="w-16 h-16 rounded-full mr-4"
+                src={user?.photoURL}
+                alt="User pictre"
+              />
+              <a class="btn rounded-full border-0 bg-green-500 px-8">Logout</a>
+            </>
+          ) : (
+            <a class="btn rounded-full border-0 bg-green-500 px-8">Login</a>
+          )}
         </div>
       </div>
     </div>
