@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import ToyCard from "./ToyCard";
 
 const AllToy = () => {
-  const toys = useLoaderData();
+  const [toys, setToys] = useState();
+  useEffect(() => {
+    fetch("https://brain-bulders-server.vercel.app/alltoy")
+      .then((res) => res.json())
+      .then((data) => setToys(data));
+  }, []);
+
   return (
     <div className="w-11/12 mx-auto">
       <div className="overflow-x-auto w-full">
@@ -21,7 +27,7 @@ const AllToy = () => {
             </tr>
           </thead>
           <tbody className="">
-            {toys.map((toy) => (
+            {toys?.map((toy) => (
               <ToyCard key={toy._id} toy={toy}></ToyCard>
             ))}
           </tbody>

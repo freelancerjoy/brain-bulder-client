@@ -22,7 +22,6 @@ const router = createBrowserRouter([
       {
         path: "/alltoy",
         element: <AllToy></AllToy>,
-        loader: () => fetch("https://brain-bulders-server.vercel.app/alltoy"),
       },
       {
         path: "/toy/:id",
