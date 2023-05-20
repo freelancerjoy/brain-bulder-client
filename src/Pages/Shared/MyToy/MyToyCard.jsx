@@ -1,7 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const MyToyCard = ({ toy }) => {
-  const { name, Seller, subCategory, price, quantity, photo } = toy;
+  const { _id, name, Seller, subCategory, price, quantity, photo } = toy;
+  const handleDelete = (_id) => {
+    fetch(`https://brain-bulders-server.vercel.app/delete/${_id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
   return (
     <tr className="border-2">
       <td>
@@ -19,8 +27,12 @@ const MyToyCard = ({ toy }) => {
       <td>{price}</td>
       <td>{quantity}</td>
       <th className="flex items-center gap-4 mt-4">
-        <button className="btn ">Update</button>
-        <button className="btn btn-error  text-white btn-circle btn-sm">
+        <Link to={`/update/${_id}`}>
+          <button className="btn ">Update</button>
+        </Link>
+        <button
+          onClick={() => handleDelete(_id)}
+          className="btn btn-error  text-white btn-circle btn-sm">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-6 w-6"

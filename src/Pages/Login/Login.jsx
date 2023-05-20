@@ -1,11 +1,12 @@
 import { useForm } from "react-hook-form";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContest } from "../../Provider/AuthProvider";
 
 const Login = () => {
   const { LogIn } = useContext(AuthContest);
+  const [error, setError] = useState();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    setError("");
     LogIn(data?.email, data?.password)
       .then((result) => {
         const user = result.user;
@@ -28,6 +29,7 @@ const Login = () => {
       })
       .catch((error) => {
         console.log(error);
+        setError(error.message);
       });
   };
   return (
@@ -62,6 +64,7 @@ const Login = () => {
                 Please Register
               </Link>
             </p>
+            <p className="text-red-500">{error}</p>
             <input
               className="btn btn-block bg-green-500 mt-8"
               type="submit"

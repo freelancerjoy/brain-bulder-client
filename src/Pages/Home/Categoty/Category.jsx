@@ -84,23 +84,23 @@ const Category = () => {
           </Tab>
         </TabList>
 
-        <div className="block ">
+        <div className="px-8 ">
           <TabPanel>
-            <div className="grid grid-cols-2 gap-5">
+            <div className="grid grid-cols-3 gap-5">
               {toys?.map((toy) => (
                 <Card key={toy._id} toy={toy}></Card>
               ))}
             </div>
           </TabPanel>
           <TabPanel>
-            <div className="grid grid-cols-2 gap-5">
+            <div className="grid grid-cols-3 gap-5">
               {categoryToy?.map((toy) => (
                 <Card key={toy._id} toy={toy}></Card>
               ))}
             </div>
           </TabPanel>
           <TabPanel>
-            <div className="grid grid-cols-2 gap-5">
+            <div className="grid grid-cols-3 gap-5">
               {categoryToy?.map((toy) => (
                 <Card key={toy._id} toy={toy}></Card>
               ))}

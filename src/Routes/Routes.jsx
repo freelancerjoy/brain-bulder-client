@@ -8,6 +8,7 @@ import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
 import SingleToy from "../Pages/SingleToy/SingleToy";
 import PrivetRoute from "./PrivetRoute";
+import UpdateToy from "../Pages/UpdateToy/UpdateToy";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,13 @@ const router = createBrowserRouter([
         path: "/mytoy",
         element: <MyToy></MyToy>,
       },
+      {
+        path: "/update/:id",
+        element: <UpdateToy></UpdateToy>,
+        loader: ({ params }) =>
+          fetch(`https://brain-bulders-server.vercel.app/update/${params.id}`),
+      },
+
       {
         path: "/login",
         element: <Login></Login>,

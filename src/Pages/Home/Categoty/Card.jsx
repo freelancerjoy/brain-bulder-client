@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Card = ({ toy }) => {
   const {
@@ -14,12 +15,12 @@ const Card = ({ toy }) => {
     description,
   } = toy;
   return (
-    <div className=" px-8">
+    <div className="">
       <div class="card card-compact border-green-100 border-4 h-96 bg-base-100 shadow-xl">
         <figure className="">
           <img className="w-full pt-5" src={photo} alt="Shoes" />
         </figure>
-        <div class="flex text-left justify-between items-end px-10 py-6">
+        <div class="flex text-left justify-between items-end px-4 py-6">
           <div>
             <h2 class="card-title font-bold">{name}</h2>
             <p>
@@ -29,10 +30,12 @@ const Card = ({ toy }) => {
               <span className="font-bold">Rating</span> {rating}
             </p>
           </div>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary bg-green-500 rounded-full">
+          <div class="card-actions justify-end ">
+            <Link
+              class="btn btn-primary border-0 bg-green-500 rounded-full"
+              to={`/toy/${_id}`}>
               View Details
-            </button>
+            </Link>
           </div>
         </div>
       </div>

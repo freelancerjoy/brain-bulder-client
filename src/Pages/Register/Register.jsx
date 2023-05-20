@@ -1,9 +1,10 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContest } from "../../Provider/AuthProvider";
 
 const Register = () => {
   const { signUpUser, profileUpdate } = useContext(AuthContest);
+  const [error, setError] = useState();
   const {
     register,
     handleSubmit,
@@ -13,7 +14,12 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = (data) => {
+    setError("");
     console.log(data);
+    if (data.password.length < 6) {
+      setError("Password at leaset 6 carecter");
+      return;
+    }
     signUpUser(data?.email, data?.password)
       .then((result) => {
         const user = result.user;
@@ -22,6 +28,7 @@ const Register = () => {
       })
       .catch((error) => {
         console.log(error);
+        setError(error.message);
       });
   };
   return (
@@ -59,6 +66,7 @@ const Register = () => {
                 placeholder="Photo URL"
                 {...register("photo", { required: true })}
               />
+              <p className="text-red-500">{error}</p>
             </div>
             <input
               className="btn btn-block bg-green-500 mt-8"
