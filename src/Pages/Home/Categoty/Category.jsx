@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import Card from "./Card";
+import useTitle from "../../../Hooks/useTitle";
 
 const Category = () => {
   const [tabIndex, setTabIndex] = useState(0);

@@ -1,8 +1,10 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import useTitle from "../../Hooks/useTitle";
 
 const UpdateToy = () => {
+  useTitle("Update Toy");
   const updateToy = useLoaderData();
   const {
     _id,

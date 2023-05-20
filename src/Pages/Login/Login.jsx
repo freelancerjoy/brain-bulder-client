@@ -3,8 +3,10 @@ import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useContext, useState } from "react";
 import { AuthContest } from "../../Provider/AuthProvider";
+import useTitle from "../../Hooks/useTitle";
 
 const Login = () => {
+  useTitle("login");
   const { LogIn } = useContext(AuthContest);
   const [error, setError] = useState();
   const location = useLocation();

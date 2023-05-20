@@ -2,7 +2,9 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import { useForm } from "react-hook-form";
+import useTitle from "../../Hooks/useTitle";
 const AddToy = () => {
+  useTitle("Add New Toy");
   const {
     register,
     handleSubmit,
@@ -12,8 +14,6 @@ const AddToy = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-
     fetch("https://brain-bulders-server.vercel.app/inserttoy", {
       method: "POST",
       headers: { "content-type": "application/json" },

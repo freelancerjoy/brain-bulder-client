@@ -1,8 +1,10 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContest } from "../../Provider/AuthProvider";
+import useTitle from "../../Hooks/useTitle";
 
 const Register = () => {
+  useTitle(register);
   const { signUpUser, profileUpdate } = useContext(AuthContest);
   const [error, setError] = useState();
   const {
