@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import MyToyCard from "./MyToyCard";
+import { AuthContest } from "../../../Provider/AuthProvider";
 
 const MyToy = () => {
+  const { user } = useContext(AuthContest);
   const [myToy, setMyToy] = useState();
-  const email = "joy@gmail.com";
-  const url = `https://brain-bulders-server.vercel.app/mytoy?email=${email}`;
+  const url = `https://brain-bulders-server.vercel.app/mytoy?email=${user?.email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setMyToy(data));
-  }, []);
+  }, [url]);
   return (
     <div className="w-11/12 mx-auto">
       <div className="overflow-x-auto w-full">

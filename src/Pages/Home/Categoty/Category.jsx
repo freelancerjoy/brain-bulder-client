@@ -12,7 +12,7 @@ const Category = () => {
     fetch("https://brain-bulders-server.vercel.app/alltoys")
       .then((res) => res.json())
       .then((data) => setToys(data));
-  }, [tabIndex]);
+  }, [toys]);
   console.log("tabt", tabIndex);
   console.log(toys);
 
@@ -88,6 +88,13 @@ const Category = () => {
           <TabPanel>
             <div className="grid grid-cols-3 gap-5">
               {toys?.map((toy) => (
+                <Card key={toy._id} toy={toy}></Card>
+              ))}
+            </div>
+          </TabPanel>
+          <TabPanel>
+            <div className="grid grid-cols-3 gap-5">
+              {categoryToy?.map((toy) => (
                 <Card key={toy._id} toy={toy}></Card>
               ))}
             </div>
