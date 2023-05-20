@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import ActiveLink from "../ActiveRoute/ActiveLink";
 import { AuthContest } from "../../../Provider/AuthProvider";
+import logo from "../../../../public/logo.png";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContest);
@@ -55,12 +56,12 @@ const Navbar = () => {
               {navItems}
             </ul>
           </div>
-          <a class="btn btn-ghost normal-case text-xl">Brain Builders</a>
+          <img class="lg:w-64 w-52" src={logo} alt="" />
         </div>
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal px-1">{navItems}</ul>
         </div>
-        <div class="navbar-end">
+        <div class="navbar-end ">
           {user ? (
             <>
               <img
@@ -68,11 +69,11 @@ const Navbar = () => {
                 src={user?.photoURL}
                 alt="User pictre"
               />
-              <a
+              <button
                 onClick={logOut}
-                class="btn rounded-full border-0 bg-green-500 px-8">
+                class="btn rounded-full hidden leading-4 lg:block border-0 bg-green-500 px-8">
                 Logout
-              </a>
+              </button>
             </>
           ) : (
             <Link
