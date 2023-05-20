@@ -22,7 +22,7 @@ const router = createBrowserRouter([
       {
         path: "/alltoy",
         element: <AllToy></AllToy>,
-        loader: () => fetch("http://localhost:5000/alltoy"),
+        loader: () => fetch("https://brain-bulders-server.vercel.app/alltoy"),
       },
       {
         path: "/toy/:id",
@@ -31,7 +31,8 @@ const router = createBrowserRouter([
             <SingleToy></SingleToy>
           </PrivetRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`https://brain-bulders-server.vercel.app/toy/${params.id}`),
       },
       {
         path: "/addtoy",

@@ -4,7 +4,7 @@ import MyToyCard from "./MyToyCard";
 const MyToy = () => {
   const [myToy, setMyToy] = useState();
   const email = "joy@gmail.com";
-  const url = `http://localhost:5000/mytoy?email=${email}`;
+  const url = `https://brain-bulders-server.vercel.app/mytoy?email=${email}`;
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
