@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { AuthContest } from "../../Provider/AuthProvider";
 import useTitle from "../../Hooks/useTitle";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   useTitle("register");
@@ -77,6 +78,12 @@ const Register = () => {
                 placeholder="Photo URL"
                 {...register("photo", { required: true })}
               />
+              <p className="p-3">
+                If you have na Account{" "}
+                <Link className="text-blue-600 underline" to="/login">
+                  Please Login
+                </Link>
+              </p>
               <p className="text-red-500">{error}</p>
             </div>
             <input
