@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
-import Swal from "sweetalert2";
+
 import { useContext } from "react";
 import { AuthContest } from "../../../Provider/AuthProvider";
 
 const Card = ({ toy }) => {
-  const { user } = useContext(AuthContest);
+  const { notify } = useContext(AuthContest);
   const {
     _id,
     name,
@@ -19,17 +19,6 @@ const Card = ({ toy }) => {
     photo,
     description,
   } = toy;
-
-  const notify = () => {
-    if (!user) {
-      Swal.fire({
-        title: "Please login",
-        text: "You Can See Afeter Login",
-        icon: "info",
-        confirmButtonText: "ok",
-      });
-    }
-  };
 
   return (
     <div className="">

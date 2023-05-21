@@ -4,9 +4,12 @@
 import { useForm } from "react-hook-form";
 import useTitle from "../../Hooks/useTitle";
 import Swal from "sweetalert2";
+import { useContext } from "react";
+import { AuthContest } from "../../Provider/AuthProvider";
 
 const AddToy = () => {
   useTitle("Add New Toy");
+  const { user } = useContext(AuthContest);
   const {
     register,
     handleSubmit,
@@ -47,6 +50,7 @@ const AddToy = () => {
             />
 
             <input
+              defaultValue={user?.displayName}
               className="bg-white p-3"
               placeholder="Seller Name"
               {...register("Seller")}
@@ -58,6 +62,7 @@ const AddToy = () => {
               {...register("price", { required: true })}
             />
             <input
+              defaultValue={user?.email}
               className="bg-white p-3"
               placeholder="Seller Email"
               {...register("email", { required: true })}

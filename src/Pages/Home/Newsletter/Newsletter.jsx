@@ -4,8 +4,8 @@ import { HiAnnotation } from "react-icons/hi";
 const Newsletter = () => {
   return (
     <div className="w-11/12 mx-auto mt-20">
-      <div className="mb-10 pl-4 border-l-4  border-green-600">
-        <h1 className="font-bold text-2xl md:text-3xl text-green-600">
+      <div className="mb-10 flex justify-end border-r-4  border-green-600">
+        <h1 className="font-bold text-2xl pr-4 md:text-3xl text-green-600">
           Our News Letter
         </h1>
       </div>

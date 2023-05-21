@@ -29,7 +29,7 @@ const Navbar = () => {
         </>
       )}
       <li>
-        <Link to="/">BLog</Link>
+        <ActiveLink to="/blog">BLog</ActiveLink>
       </li>
     </>
   );

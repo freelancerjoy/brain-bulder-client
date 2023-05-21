@@ -10,6 +10,7 @@ import SingleToy from "../Pages/SingleToy/SingleToy";
 import PrivetRoute from "./PrivetRoute";
 import UpdateToy from "../Pages/UpdateToy/UpdateToy";
 import ErrorPage from "../Pages/Shared/EroorPage/ErrorPage";
+import Blog from "../Pages/Blog/Blog";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
           fetch(`https://brain-server-two.vercel.app/update/${params.id}`),
       },
 
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
       {
         path: "/login",
         element: <Login></Login>,

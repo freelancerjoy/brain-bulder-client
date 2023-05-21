@@ -33,10 +33,16 @@ const Footer = () => {
           <a className="link link-hover">Bangladesh Mirpur, Dhaka-12</a>
           <a className="link link-hover">098449404049</a>
           <a className="link link-hover">yourmail@gmail.com</a>
-          <span className="flex gap-9 my-3 text-2xl">
-            <FaFacebook></FaFacebook>
-            <FaGoogle></FaGoogle>
-            <FaInstagram></FaInstagram>
+          <span className="flex gap-6 my-3 text-green-700 text-2xl">
+            <a href="https://www.facebook.com/">
+              <FaFacebook></FaFacebook>
+            </a>
+            <a href="https://www.google.com/">
+              <FaGoogle></FaGoogle>
+            </a>
+            <a href="https://www.instragram.com/">
+              <FaInstagram></FaInstagram>
+            </a>
           </span>
         </div>
       </footer>

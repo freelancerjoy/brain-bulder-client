@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContest } from "../../Provider/AuthProvider";
 
 const ToyCard = ({ toy }) => {
+  const { notify } = useContext(AuthContest);
   const { _id, name, Seller, subCategory, price, quantity, photo } = toy;
   return (
     <tr className="border-2 odd:bg-green-200">
@@ -20,7 +22,7 @@ const ToyCard = ({ toy }) => {
       <td>{price}</td>
       <td>{quantity}</td>
       <th>
-        <Link to={`/toy/${_id}`}>
+        <Link onClick={notify} to={`/toy/${_id}`}>
           <button className="btn btn-outline btn-md border-2 border-green-500">
             details
           </button>

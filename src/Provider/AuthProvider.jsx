@@ -11,6 +11,7 @@ import {
 } from "firebase/auth";
 import app from "../Firebase/firebase.config";
 import { set } from "react-hook-form";
+import Swal from "sweetalert2";
 
 export const AuthContest = createContext(null);
 const auth = getAuth(app);
@@ -54,6 +55,18 @@ const AuthProvider = ({ children }) => {
     signOut(auth);
   };
 
+  // notify alert
+  const notify = () => {
+    if (!user) {
+      Swal.fire({
+        title: "Please login",
+        text: "You Can See Afeter Login",
+        icon: "info",
+        confirmButtonText: "ok",
+      });
+    }
+  };
+
   // Current user
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -71,6 +84,7 @@ const AuthProvider = ({ children }) => {
     profileUpdate,
     logOut,
     googleLogin,
+    notify,
   };
   return (
     <AuthContest.Provider value={authInfo}>{children}</AuthContest.Provider>

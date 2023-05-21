@@ -57,11 +57,11 @@ const Login = () => {
   };
   return (
     <div className="bg-slate-100 py-10">
-      <div className="grid grid-cols-2 gap-5 w-11/12 mx-auto ">
+      <div className="grid grid-cols-1 items-center md:grid-cols-2 gap-5 w-11/12 mx-auto ">
         <div>
           <img
-            src="https://img.freepik.com/premium-vector/registration-online-concept_23-2147987277.jpg?w=740"
-            alt=""
+            src="https://img.freepik.com/free-vector/login-concept-illustration_114360-739.jpg?w=740&t=st=1684672883~exp=1684673483~hmac=e90974015f27ffbb6eccc86d60d2f2833478f7dbae72891418918b8a96ab5b28"
+            alt="login images"
           />
         </div>
         <div>

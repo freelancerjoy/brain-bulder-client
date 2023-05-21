@@ -42,11 +42,11 @@ const Register = () => {
   };
   return (
     <div className="bg-slate-100 py-10">
-      <div className="grid grid-cols-2 gap-5 w-11/12 mx-auto ">
+      <div className="grid grid-cols-1 items-center md:grid-cols-2 gap-5 w-11/12 mx-auto ">
         <div>
           <img
-            src="https://img.freepik.com/premium-vector/registration-online-concept_23-2147987277.jpg?w=740"
-            alt=""
+            src="https://img.freepik.com/free-vector/account-concept-illustration_114360-399.jpg?w=740&t=st=1684672999~exp=1684673599~hmac=082e9ea1c59416d6589d2f11b549c4dd0d26d22f6dd42d26115e83e88a1fc4fd"
+            alt="Registe images"
           />
         </div>
         <div>

@@ -22,11 +22,11 @@ const SingleToy = () => {
 
   return (
     <div className="w-11/12 mx-auto py-6">
-      <div className="card lg:card-side bg-base-100 shadow-xl py-2">
+      <div className="card lg:card-side ml-12 bg-base-100 shadow-xl py-2">
         <figure className="md:w-1/2">
           <img className="w-full" src={photo} alt="Album" />
         </figure>
-        <div className="md:w-1/2 ml-6">
+        <div className="md:w-1/2 ml-6 mt-12">
           <h2 className="card-title font-bold text-2xl">{name}</h2>
           <div className="space-y-2 mt-4">
             {Seller && (
@@ -54,7 +54,9 @@ const SingleToy = () => {
             </p>
           </div>
           <div className="card-actions mt-10">
-            <button className="btn btn-primary">Ordee Now</button>
+            <button className="btn btn-outline border 2 text-green-500 border-green-500">
+              Ordee Now
+            </button>
           </div>
         </div>
       </div>
