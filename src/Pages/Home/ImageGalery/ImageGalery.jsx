@@ -5,7 +5,7 @@ const ImageGalery = () => {
   return (
     <div className="py-16 w-11/12 mx-auto">
       <div className="mb-10 pl-4 border-l-4  border-green-600">
-        <h1 className="font-bold text-3xl text-green-600">
+        <h1 className="font-bold text-2xl md:text-3xl text-green-600">
           Welcome Our Gallery
         </h1>
         <p className="lg:max-w-sm">
@@ -13,8 +13,8 @@ const ImageGalery = () => {
           we've captured.{" "}
         </p>
       </div>
-      <div className="grid grid-cols-2 gap-5 ">
-        <div className=" bg-slate-100 rounded-lg p-5 shadow-md">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 ">
+        <div className=" bg-slate-100 rounded-lg md:p-5 shadow-md">
           {/* <img
             src="https://www.n2y.com/wp-content/uploads/n2y-manips-full-kit.png"
             alt=""
