@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import ToyCard from "./ToyCard";
 import useTitle from "../../Hooks/useTitle";
-import { BallTriangle } from "react-loader-spinner";
+import { Oval } from "react-loader-spinner";
 
 const AllToy = () => {
   useTitle("All Toy");
@@ -13,8 +13,12 @@ const AllToy = () => {
   useEffect(() => {
     fetch("https://brain-server-two.vercel.app/alltoy")
       .then((res) => res.json())
-      .then((data) => setToys(data));
-    setSpinner(false);
+      .then((data) => {
+        setToys(data);
+        if (data) {
+          setSpinner(false);
+        }
+      });
   }, []);
 
   // Search By Title
@@ -60,23 +64,28 @@ const AllToy = () => {
               <th>Action</th>
             </tr>
           </thead>
-          <tbody className="">
-            {(spinner && (
-              <div className="flex justify-center">
-                <BallTriangle
-                  height={100}
-                  width={100}
-                  radius={5}
-                  color="#4fa94d"
-                  ariaLabel="ball-triangle-loading"
-                  wrapperClass={{}}
-                  wrapperStyle=""
-                  visible={true}
-                />
-              </div>
-            )) ||
-              toys?.map((toy) => <ToyCard key={toy._id} toy={toy}></ToyCard>)}
-          </tbody>
+          {spinner ? (
+            <div className="min-w-full">
+              <Oval
+                height={80}
+                width={80}
+                color="#4fa94d"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+                ariaLabel="oval-loading"
+                secondaryColor="#4fa94d"
+                strokeWidth={2}
+                strokeWidthSecondary={2}
+              />
+            </div>
+          ) : (
+            <tbody className="">
+              {toys?.map((toy) => (
+                <ToyCard key={toy._id} toy={toy}></ToyCard>
+              ))}
+            </tbody>
+          )}
           {/* foot */}
         </table>
       </div>

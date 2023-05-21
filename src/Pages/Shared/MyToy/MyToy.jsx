@@ -3,12 +3,14 @@ import MyToyCard from "./MyToyCard";
 import { AuthContest } from "../../../Provider/AuthProvider";
 import useTitle from "../../../Hooks/useTitle";
 import Swal from "sweetalert2";
+import { Oval } from "react-loader-spinner";
 
 const MyToy = () => {
   useTitle("My Toy");
   const { user } = useContext(AuthContest);
   const [myToy, setMyToy] = useState();
   const [sortValue, setSortValue] = useState(1);
+  const [spinner, setSpinner] = useState(true);
 
   // email search query url
   const url = `https://brain-server-two.vercel.app/mytoy?email=${user?.email}&sort=${sortValue}`;
@@ -16,7 +18,12 @@ const MyToy = () => {
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
-      .then((data) => setMyToy(data));
+      .then((data) => {
+        setMyToy(data);
+        if (data) {
+          setSpinner(false);
+        }
+      });
   }, [url, sortValue]);
 
   // Sort function
@@ -76,14 +83,31 @@ const MyToy = () => {
               <th>Action</th>
             </tr>
           </thead>
-          <tbody className="">
-            {myToy?.map((toy) => (
-              <MyToyCard
-                key={toy._id}
-                toy={toy}
-                handleDelete={handleDelete}></MyToyCard>
-            ))}
-          </tbody>
+          {spinner ? (
+            <div className="min-w-full">
+              <Oval
+                height={80}
+                width={80}
+                color="#4fa94d"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+                ariaLabel="oval-loading"
+                secondaryColor="#4fa94d"
+                strokeWidth={2}
+                strokeWidthSecondary={2}
+              />
+            </div>
+          ) : (
+            <tbody className="">
+              {myToy?.map((toy) => (
+                <MyToyCard
+                  key={toy._id}
+                  toy={toy}
+                  handleDelete={handleDelete}></MyToyCard>
+              ))}
+            </tbody>
+          )}
           {/* foot */}
         </table>
       </div>
