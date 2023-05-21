@@ -2,12 +2,14 @@ import React, { useContext, useEffect, useState } from "react";
 import MyToyCard from "./MyToyCard";
 import { AuthContest } from "../../../Provider/AuthProvider";
 import useTitle from "../../../Hooks/useTitle";
+import Swal from "sweetalert2";
 
 const MyToy = () => {
   useTitle("My Toy");
   const { user } = useContext(AuthContest);
   const [myToy, setMyToy] = useState();
   const [sortValue, setSortValue] = useState(1);
+
   const url = `https://brain-bulders-server.vercel.app/mytoy?email=${user?.email}&sort=${sortValue}`;
   console.log(sortValue);
   useEffect(() => {
@@ -21,6 +23,31 @@ const MyToy = () => {
     setSortValue(value);
   };
 
+  const handleDelete = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://brain-bulders-server.vercel.app/delete/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount == 1) {
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              const remaing = myToy.filter((toy) => toy._id !== _id);
+              setMyToy(remaing);
+            }
+          });
+      }
+    });
+  };
   return (
     <div className="w-11/12 mx-auto">
       <div className="overflow-x-auto w-full">
@@ -48,7 +75,10 @@ const MyToy = () => {
           </thead>
           <tbody className="">
             {myToy?.map((toy) => (
-              <MyToyCard key={toy._id} toy={toy}></MyToyCard>
+              <MyToyCard
+                key={toy._id}
+                toy={toy}
+                handleDelete={handleDelete}></MyToyCard>
             ))}
           </tbody>
           {/* foot */}

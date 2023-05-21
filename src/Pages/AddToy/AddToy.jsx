@@ -3,6 +3,8 @@
 /* eslint-disable no-unused-vars */
 import { useForm } from "react-hook-form";
 import useTitle from "../../Hooks/useTitle";
+import Swal from "sweetalert2";
+
 const AddToy = () => {
   useTitle("Add New Toy");
   const {
@@ -20,7 +22,16 @@ const AddToy = () => {
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        if (data.insertedId)
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Succefully Added Toy",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+      });
   };
   console.log(watch("example"));
   return (

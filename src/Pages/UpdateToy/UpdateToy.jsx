@@ -2,6 +2,7 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import useTitle from "../../Hooks/useTitle";
+import Swal from "sweetalert2";
 
 const UpdateToy = () => {
   useTitle("Update Toy");
@@ -33,7 +34,17 @@ const UpdateToy = () => {
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        if (data.modifiedCount == 1) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Update Succefully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
   };
   return (
     <div className="bg-slate-200 py-10">

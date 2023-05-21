@@ -1,15 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const MyToyCard = ({ toy }) => {
+const MyToyCard = ({ toy, handleDelete }) => {
   const { _id, name, Seller, subCategory, price, quantity, photo } = toy;
-  const handleDelete = (_id) => {
-    fetch(`https://brain-bulders-server.vercel.app/delete/${_id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  };
+
   return (
     <tr className="border-2">
       <td>

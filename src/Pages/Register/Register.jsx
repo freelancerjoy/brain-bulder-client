@@ -2,9 +2,10 @@ import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContest } from "../../Provider/AuthProvider";
 import useTitle from "../../Hooks/useTitle";
+import Swal from "sweetalert2";
 
 const Register = () => {
-  useTitle(register);
+  useTitle("register");
   const { signUpUser, profileUpdate } = useContext(AuthContest);
   const [error, setError] = useState();
   const {
@@ -17,6 +18,7 @@ const Register = () => {
 
   const onSubmit = (data) => {
     setError("");
+    reset();
     console.log(data);
     if (data.password.length < 6) {
       setError("Password at leaset 6 carecter");
@@ -26,7 +28,12 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         profileUpdate(user, data?.name, data?.photo);
-        console.log(user);
+        Swal.fire({
+          title: "Registation Succesful",
+          text: "Thank for registration",
+          icon: "success",
+          confirmButtonText: "Cool",
+        });
       })
       .catch((error) => {
         console.log(error);

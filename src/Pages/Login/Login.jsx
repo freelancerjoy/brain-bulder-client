@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { useContext, useState } from "react";
 import { AuthContest } from "../../Provider/AuthProvider";
 import useTitle from "../../Hooks/useTitle";
+import Swal from "sweetalert2";
 
 const Login = () => {
   useTitle("login");
@@ -26,7 +27,12 @@ const Login = () => {
     LogIn(data?.email, data?.password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        Swal.fire({
+          title: "Loign Succes",
+          text: "Welcome, To Your Account",
+          icon: "success",
+          confirmButtonText: "Cool",
+        });
         navigate(from);
       })
       .catch((error) => {
@@ -39,7 +45,13 @@ const Login = () => {
     googleLogin()
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        Swal.fire({
+          title: "Loign Succes",
+          text: "Welcome, To Your Account",
+          icon: "success",
+          confirmButtonText: "Cool",
+        });
+        navigate(from);
       })
       .catch((error) => setError(error.message));
   };
