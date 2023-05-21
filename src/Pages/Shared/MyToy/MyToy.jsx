@@ -10,19 +10,22 @@ const MyToy = () => {
   const [myToy, setMyToy] = useState();
   const [sortValue, setSortValue] = useState(1);
 
+  // email search query url
   const url = `https://brain-server-two.vercel.app/mytoy?email=${user?.email}&sort=${sortValue}`;
-  console.log(sortValue);
+
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setMyToy(data));
   }, [url, sortValue]);
 
+  // Sort function
   const sort = (event) => {
     const value = event.target.value;
     setSortValue(value);
   };
 
+  // Delete toy function
   const handleDelete = (_id) => {
     Swal.fire({
       title: "Are you sure?",

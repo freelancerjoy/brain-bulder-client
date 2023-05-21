@@ -18,6 +18,8 @@ const AddToy = () => {
     formState: { errors },
   } = useForm();
 
+  // Submit Fuction
+
   const onSubmit = (data) => {
     fetch("https://brain-server-two.vercel.app/inserttoy", {
       method: "POST",
@@ -35,8 +37,9 @@ const AddToy = () => {
             timer: 1500,
           });
       });
+    reset();
   };
-  console.log(watch("example"));
+
   return (
     <div className="bg-slate-200 py-10">
       <div className="w-11/12 mx-auto">

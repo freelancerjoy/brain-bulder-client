@@ -9,6 +9,8 @@ const Category = () => {
   const [active, setActive] = useState("");
   const [toys, setToys] = useState([]);
   const [categoryToy, setCeategoryToy] = useState(toys);
+
+  // Aos Animation
   useEffect(() => {
     AOS.init({
       offset: 200,
@@ -17,14 +19,15 @@ const Category = () => {
       delay: 40,
     });
   }, []);
+
+  // Get all toy form data base
   useEffect(() => {
     fetch("https://brain-server-two.vercel.app/alltoys")
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);
-  console.log("tabt", tabIndex);
-  console.log(toys);
 
+  // Tab index value
   useEffect(() => {
     setActive("tab-active border-0 text-black font-bold");
 
@@ -52,7 +55,7 @@ const Category = () => {
     }
     console.log("cartegory", categoryToy);
   }, [tabIndex]);
-  console.log(active);
+
   return (
     <div className=" w-11/12 mx-auto">
       <div

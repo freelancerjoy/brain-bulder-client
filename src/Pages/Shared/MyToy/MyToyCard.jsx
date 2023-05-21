@@ -20,9 +20,11 @@ const MyToyCard = ({ toy, handleDelete }) => {
       <td>{subCategory}</td>
       <td>{price}</td>
       <td>{quantity}</td>
-      <th className="flex items-center gap-4 mt-4">
+      <th className=" mt-4">
         <Link to={`/update/${_id}`}>
-          <button className="btn ">Update</button>
+          <button className="btn mr-4 btn-outline btn-md border-2 border-green-500">
+            Update
+          </button>
         </Link>
         <button
           onClick={() => handleDelete(_id)}

@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+// Active route
 const ActiveLink = ({ to, children }) => {
   return (
     <div>

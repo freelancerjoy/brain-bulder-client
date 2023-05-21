@@ -7,6 +7,7 @@ import logo from "../../../../public/logo.png";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContest);
 
+  // Nav Items
   const navItems = (
     <>
       <li>
@@ -78,7 +79,7 @@ const Navbar = () => {
             <>
               <img
                 title={user?.displayName}
-                className="w-14 h-14 rounded-full mr-4"
+                className="w-10 h-10 rounded-full mr-4"
                 src={user?.photoURL}
                 alt="User pictre"
               />

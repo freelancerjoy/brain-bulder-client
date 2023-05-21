@@ -16,6 +16,7 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
+  // Register form action function
   const onSubmit = (data) => {
     setError("");
     reset();
@@ -24,6 +25,7 @@ const Register = () => {
       setError("Password at leaset 6 carecter");
       return;
     }
+    // sign up user function
     signUpUser(data?.email, data?.password)
       .then((result) => {
         const user = result.user;

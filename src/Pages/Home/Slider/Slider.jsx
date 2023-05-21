@@ -2,10 +2,10 @@ import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
 import css from "./Slider.css";
 
+// heading main slider
 const Slider = () => {
   return (
     <div>
-      {" "}
       <AwesomeSlider
         className="aws-btn"
         bullets={false}

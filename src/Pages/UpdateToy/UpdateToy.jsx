@@ -25,9 +25,8 @@ const UpdateToy = () => {
     formState: { errors },
   } = useForm();
 
+  // Update toy function
   const onSubmit = (data) => {
-    console.log(data);
-
     fetch(`https://brain-server-two.vercel.app/update/${_id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
@@ -46,6 +45,7 @@ const UpdateToy = () => {
         }
       });
   };
+
   return (
     <div className="bg-slate-200 py-10">
       <div className="w-11/12 mx-auto">

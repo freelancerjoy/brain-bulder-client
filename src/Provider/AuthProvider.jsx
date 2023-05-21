@@ -16,13 +16,13 @@ import Swal from "sweetalert2";
 export const AuthContest = createContext(null);
 const auth = getAuth(app);
 
+// google Provider
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  // loading
   const [loading, setLoading] = useState(true);
-
-  console.log(user);
 
   // Create user
   const signUpUser = (email, password) => {
@@ -37,7 +37,6 @@ const AuthProvider = ({ children }) => {
   };
 
   // Sigin With Goole
-
   const googleLogin = () => {
     return signInWithPopup(auth, googleProvider);
   };
@@ -76,6 +75,7 @@ const AuthProvider = ({ children }) => {
     return () => unsubscribe();
   }, [loading]);
 
+  // Auth Value
   const authInfo = {
     user,
     loading,

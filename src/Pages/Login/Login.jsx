@@ -22,6 +22,7 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
+  // Submit Action Function
   const onSubmit = (data) => {
     setError("");
     LogIn(data?.email, data?.password)
@@ -41,6 +42,7 @@ const Login = () => {
       });
   };
 
+  // google login
   const handleGoogleLogin = () => {
     googleLogin()
       .then((result) => {

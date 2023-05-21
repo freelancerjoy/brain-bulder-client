@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "/logo.png";
 import { FaFacebook, FaGoogle, FaInstagram } from "react-icons/fa";
+
 const Footer = () => {
   return (
     <div className="pt-16">
