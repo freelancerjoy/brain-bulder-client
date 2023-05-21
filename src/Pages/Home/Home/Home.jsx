@@ -4,6 +4,8 @@ import ImageGalery from "../ImageGalery/ImageGalery";
 
 import Category from "../Categoty/Category";
 import useTitle from "../../../Hooks/useTitle";
+import Newsletter from "../Newsletter/Newsletter";
+import Reciew from "../Review/Reciew";
 
 const Home = () => {
   useTitle("Home");
@@ -13,6 +15,8 @@ const Home = () => {
         <Slider></Slider>
         <ImageGalery></ImageGalery>
         <Category></Category>
+        <Reciew></Reciew>
+        <Newsletter></Newsletter>
       </div>
     </div>
   );

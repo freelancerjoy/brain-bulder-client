@@ -7,7 +7,7 @@ const AllToy = () => {
   useTitle("All Toy");
   const [toys, setToys] = useState();
   useEffect(() => {
-    fetch("https://brain-bulders-server.vercel.app/alltoy")
+    fetch("https://brain-server-two.vercel.app/alltoy")
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);
@@ -17,7 +17,7 @@ const AllToy = () => {
     const form = event.target;
     const search = form.search.value;
     console.log(search);
-    fetch(`https://brain-bulders-server.vercel.app/getToyByTitle/${search}`)
+    fetch(`https://brain-server-two.vercel.app/getToyByTitle/${search}`)
       .then((res) => res.json())
       .then((data) => setToys(data));
   };

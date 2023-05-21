@@ -32,7 +32,7 @@ const router = createBrowserRouter([
           </PrivetRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://brain-bulders-server.vercel.app/toy/${params.id}`),
+          fetch(`https://brain-server-two.vercel.app/toy/${params.id}`),
       },
       {
         path: "/addtoy",
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
         path: "/update/:id",
         element: <UpdateToy></UpdateToy>,
         loader: ({ params }) =>
-          fetch(`https://brain-bulders-server.vercel.app/update/${params.id}`),
+          fetch(`https://brain-server-two.vercel.app/update/${params.id}`),
       },
 
       {

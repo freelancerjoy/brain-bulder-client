@@ -16,7 +16,7 @@ const AddToy = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    fetch("https://brain-bulders-server.vercel.app/inserttoy", {
+    fetch("https://brain-server-two.vercel.app/inserttoy", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),

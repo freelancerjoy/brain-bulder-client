@@ -28,7 +28,7 @@ const UpdateToy = () => {
   const onSubmit = (data) => {
     console.log(data);
 
-    fetch(`https://brain-bulders-server.vercel.app/update/${_id}`, {
+    fetch(`https://brain-server-two.vercel.app/update/${_id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),

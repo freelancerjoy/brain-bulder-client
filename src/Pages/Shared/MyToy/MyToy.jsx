@@ -10,7 +10,7 @@ const MyToy = () => {
   const [myToy, setMyToy] = useState();
   const [sortValue, setSortValue] = useState(1);
 
-  const url = `https://brain-bulders-server.vercel.app/mytoy?email=${user?.email}&sort=${sortValue}`;
+  const url = `https://brain-server-two.vercel.app/mytoy?email=${user?.email}&sort=${sortValue}`;
   console.log(sortValue);
   useEffect(() => {
     fetch(url)
@@ -34,7 +34,7 @@ const MyToy = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://brain-bulders-server.vercel.app/delete/${_id}`, {
+        fetch(`https://brain-server-two.vercel.app/delete/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

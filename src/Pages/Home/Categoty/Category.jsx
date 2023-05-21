@@ -10,7 +10,7 @@ const Category = () => {
   const [categoryToy, setCeategoryToy] = useState(toys);
 
   useEffect(() => {
-    fetch("https://brain-bulders-server.vercel.app/alltoys")
+    fetch("https://brain-server-two.vercel.app/alltoys")
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);
@@ -46,7 +46,7 @@ const Category = () => {
   }, [tabIndex]);
   console.log(active);
   return (
-    <div className="pb-96 w-11/12 mx-auto">
+    <div className=" w-11/12 mx-auto">
       <div className="mb-10 pl-4 border-l-4  border-green-600">
         <h1 className="font-bold text-3xl text-green-600">Shop by Category</h1>
         <p className="lg:max-w-sm">
