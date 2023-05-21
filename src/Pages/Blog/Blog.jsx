@@ -49,7 +49,7 @@ const Blog = () => {
         </p>
       </div>
       <div className="mt-6">
-        <h1 className="font-bold font-xl">Compare SQL and NoSQL databases?</h1>
+        <h1 className="font-bold text-xl">Compare SQL and NoSQL databases?</h1>
         <p className="mt-4">
           <span className="font-bold mt-2">Sql Database</span>
         </p>
@@ -87,21 +87,56 @@ const Blog = () => {
             database to database.
           </li>
         </ul>
-
+      </div>
+      <div className="mt-6">
+        <h1 className="font-bold text-xl">
+          What is express js? What is Nest JS ?
+        </h1>
         <p className="mt-4">
-          <span className="font-bold mt-2"></span>
+          <span className="font-bold mt-2">Express.js</span>
+          Express.js is a minimalistic web application framework for Node.js
+          that provides a simple and flexible way to build web applications and
+          APIs. It is designed to be lightweight and unopinionated, allowing
+          developers to have more control over their application structure and
+          logic. Express.js offers features such as routing, middleware support,
+          template engines, and error handling, making it a popular choice for
+          building server-side applications.
+        </p>
+        <p className="mt-4">
+          <span className="font-bold mt-2">NestJS</span>
+          NestJS, on the other hand, is a progressive and opinionated web
+          framework for Node.js. It is built with TypeScript and draws
+          inspiration from Angular, combining elements of object-oriented
+          programming, functional programming, and reactive programming. NestJS
+          provides a robust and modular architecture, emphasizing the use of
+          decorators, dependency injection, and a module-based structure for
+          building scalable and maintainable server-side applications.
         </p>
       </div>
       <div className="mt-6">
-        <h1 className="font-bold font-xl"></h1>
+        <h1 className="font-bold text-xl">
+          What is MongoDB aggregate and how does it work
+        </h1>
         <p className="mt-4">
           <span className="font-bold mt-2"></span>
+          In MongoDB, aggregation operations process the data records/documents
+          and return computed results. It collects values from various documents
+          and groups them together and then performs different types of
+          operations on that grouped data like sum, average, minimum, maximum,
+          etc to return a computed result. It is similar to the aggregate
+          function of SQL.
         </p>
-      </div>
-      <div className="mt-6">
-        <h1 className="font-bold font-xl"></h1>
         <p className="mt-4">
           <span className="font-bold mt-2"></span>
+          Pipeline Stages: You define the stages in an array, specifying the
+          operations to be performed on the data. Document Processing: The
+          aggregation pipeline processes each document in the collection through
+          the stages in the defined order. Transformation and Filtering: Each
+          stage can transform the documents, filter them based on specific
+          conditions, perform calculations, and apply various operations like
+          grouping, sorting, and projecting fields. Result Generation: After the
+          documents have gone through all the stages, the resulting documents
+          are returned as the output of the aggregation pipeline.
         </p>
       </div>
     </div>
