@@ -1,6 +1,8 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
 import useTitle from "../../Hooks/useTitle";
+import { Rating } from "@smastrom/react-rating";
+import "@smastrom/react-rating/style.css";
 
 const SingleToy = () => {
   useTitle("Toy Details");
@@ -27,9 +29,11 @@ const SingleToy = () => {
         <div className="md:w-1/2 ml-6">
           <h2 className="card-title font-bold text-2xl">{name}</h2>
           <div className="space-y-2 mt-4">
-            <p>
-              <span className="font-bold">Seller:</span> {Seller}
-            </p>
+            {Seller && (
+              <p>
+                <span className="font-bold">Seller:</span> {Seller}
+              </p>
+            )}
             <p>
               <span className="font-bold"> E-mail:</span> {email}
             </p>
@@ -39,9 +43,9 @@ const SingleToy = () => {
             <p>
               <span className="font-bold">Avalable:</span> {quantity}
             </p>
-            <p>
+            <p className="flex gap-2 items-center">
               <span className="font-bold">Rating: </span>
-              {rating}
+              <Rating style={{ maxWidth: 130 }} value={rating} readOnly />
             </p>
 
             <p className="">

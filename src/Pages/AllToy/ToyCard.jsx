@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const ToyCard = ({ toy }) => {
   const { _id, name, Seller, subCategory, price, quantity, photo } = toy;
   return (
-    <tr className="border-2">
+    <tr className="border-2 odd:bg-green-200">
       <td>
         <div className="flex items-center space-x-3">
           <div className="avatar">
@@ -15,13 +15,15 @@ const ToyCard = ({ toy }) => {
         </div>
       </td>
       <td>{name}</td>
-      <td>{Seller}</td>
+      {Seller && <td>{Seller}</td>}
       <td>{subCategory}</td>
       <td>{price}</td>
       <td>{quantity}</td>
       <th>
         <Link to={`/toy/${_id}`}>
-          <button className="btn btn-ghost btn-xs">details</button>
+          <button className="btn btn-outline btn-md border-2 border-green-500">
+            details
+          </button>
         </Link>
       </th>
     </tr>

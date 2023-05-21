@@ -49,7 +49,7 @@ const AddToy = () => {
             <input
               className="bg-white p-3"
               placeholder="Seller Name"
-              {...register("Seller", { required: true })}
+              {...register("Seller")}
             />
 
             <input

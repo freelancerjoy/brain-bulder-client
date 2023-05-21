@@ -50,16 +50,16 @@ const MyToy = () => {
   };
   return (
     <div className="w-11/12 mx-auto">
+      <div className="py-4">
+        <select
+          onChange={sort}
+          className="select select-bordered w-full max-w-xs">
+          <option selected>Sort By Price</option>
+          <option value="2">High</option>
+          <option value="1">low</option>
+        </select>
+      </div>
       <div className="overflow-x-auto w-full">
-        <div className="py-4">
-          <select
-            onChange={sort}
-            className="select select-bordered w-full max-w-xs">
-            <option selected>Sort By Price</option>
-            <option value="2">High</option>
-            <option value="1">low</option>
-          </select>
-        </div>
         <table className="table w-full border-2">
           {/* head */}
           <thead className="">

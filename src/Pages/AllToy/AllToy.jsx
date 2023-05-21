@@ -23,16 +23,22 @@ const AllToy = () => {
   };
   return (
     <div className="w-11/12 mx-auto">
-      <div className="overflow-x-auto w-full">
-        <form onSubmit={handleSearch} className="text-center p-4">
-          <input
-            type="text"
-            name="search"
-            placeholder="Type here"
-            className="input input-bordered w-full max-w-xs"
-          />
-          <input className="btn ml-2" type="submit" value="Search" />
-        </form>
+      <form
+        onSubmit={handleSearch}
+        className="text-center flex justify-center p-4">
+        <input
+          type="text"
+          name="search"
+          placeholder="Type here"
+          className="input input-bordered w-full max-w-xs"
+        />
+        <input
+          className="btn ml-2 btn-outline border-green-500 border-2"
+          type="submit"
+          value="Search"
+        />
+      </form>
+      <div className="overflow-x-auto max-h-max w-full">
         <table className="table w-full border-2">
           {/* head */}
           <thead className="">

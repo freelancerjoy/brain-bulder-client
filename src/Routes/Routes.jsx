@@ -9,12 +9,13 @@ import Login from "../Pages/Login/Login";
 import SingleToy from "../Pages/SingleToy/SingleToy";
 import PrivetRoute from "./PrivetRoute";
 import UpdateToy from "../Pages/UpdateToy/UpdateToy";
+import ErrorPage from "../Pages/Shared/EroorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    errorElement: <h1>console.erro</h1>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",

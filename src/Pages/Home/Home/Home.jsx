@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Slider from "../Slider/Slider";
 import ImageGalery from "../ImageGalery/ImageGalery";
-
 import Category from "../Categoty/Category";
 import useTitle from "../../../Hooks/useTitle";
 import Newsletter from "../Newsletter/Newsletter";
@@ -9,6 +8,7 @@ import Reciew from "../Review/Reciew";
 
 const Home = () => {
   useTitle("Home");
+
   return (
     <div className="">
       <div className="">
